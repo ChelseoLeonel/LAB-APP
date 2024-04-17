@@ -40,7 +40,7 @@ const DesignacaoList = ({ designacoes, atualizaDesignacao }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {designacoes.map(designacao => (
+                    {designacoes.map((designacao, index) => (
                         <tr key={designacao.id}>
                             <td className='col-3'>{designacao.designacao}</td>
                             <td className='col-1'>
@@ -54,6 +54,7 @@ const DesignacaoList = ({ designacoes, atualizaDesignacao }) => {
                                             lidaComAlteracoes(designacao.id, 'funcionais', novoValor !== 0 ? novoValor : "");
                                         }
                                     }}
+                                    disabled={index < 1}
                                 />
                             </td>
                             <td className='col-1'>
@@ -67,6 +68,7 @@ const DesignacaoList = ({ designacoes, atualizaDesignacao }) => {
                                             lidaComAlteracoes(designacao.id, 'nao_funcionais', novoValor !== 0 ? novoValor : "");
                                         }
                                     }}
+                                    disabled={index < 1}
                                 />
                             </td>
                             <td className='col-1'>
